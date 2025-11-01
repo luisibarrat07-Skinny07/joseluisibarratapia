@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planilla Responsiva</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="container">
+    
+    <!-- ==== BARRA DE REDES ==== -->
+    <header class="header">
+      <div class="iconos">
+        <div class="icono"><img src="1x/1x/Recurso 1.png" alt="Facebook"></div>
+        <div class="icono"><img src="1x/Recurso 2.png" alt="Behance"></div>
+        <div class="icono"><img src="1x/Recurso 3.png" alt="Instagram"></div>
+      </div>
+    </header>
+
+    <!-- ==== SECCIÓN SUPERIOR ==== -->
+    <div class="top-section">
+      <div class="logo">
+        <img src="1x/fotografia.jpg" alt="Foto de perfil">
+      </div>
+
+      <div class="banner-area">
+        <h2 class="titulo-banner">José Luis Ibarra Tapia</h2>
+        <div class="banner">
+          <p class="texto-banner">Soy José Luis Ibarra Tapia, diseñador con mente curiosa y pasión por lo visual. Estudio Diseño Gráfico y soy egresado de Diseño Industrial por la Uaem de Valle de Chalco, lo que me da una visión tanto creativa como técnica.
+
+Trabajé en Central Chromática, creando flyers, lonas, stands y proyectos publicitarios, además de colaborar en varios trabajos freelance de identidad visual y contenido digital.
+Domino Adobe Illustrator, Photoshop y After Effects, y me encanta dar vida a las ideas combinando color, forma y movimiento.
+
+Para mí, el diseño no solo se ve: se siente</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==== TARJETAS (PROYECTOS) ==== -->
+    <section class="tarjetas">
+      <div class="tarjeta" onclick="abrirGaleria(1)">
+        <div class="imagen"><img src="1x/INVI-01.jpg" alt="Proyecto 1"></div>
+      </div>
+
+      <div class="tarjeta" onclick="abrirGaleria(2)">
+        <div class="imagen"><img src="1x/moto-07.jpg" alt="Proyecto 2"></div>
+      </div>
+
+      <div class="tarjeta" onclick="abrirGaleria(3)">
+        <div class="imagen"><img src="1x/1.png" alt="Proyecto 3"></div>
+      </div>
+    </section>
+
+    <!-- ==== MODAL CON GALERÍA VERTICAL ==== -->
+    <div id="modal" class="modal">
+      <span class="cerrar" onclick="cerrarGaleria()">&times;</span>
+      <div class="modal-galeria" id="modal-galeria"></div>
+    </div>
+
+    <!-- ==== PIE DE PÁGINA ==== -->
+    <footer class="footer">
+      <p>© 2025 | Diseñado por LUIS IBARRA | Todos los derechos reservados</p>
+    </footer>
+
+  </div>
+
+  <!-- ==== SCRIPT DE GALERÍA ==== -->
+  <script>
+    const proyectos = {
+      1: ["1x/INVI-01.JPG", "1x/INVI-02.jpg", "1x/INVI-03.jpg", "1x/INVI-04.jpg","1x/INVI-05.jpg","1x/INVI-06.jpg"],
+      2: ["1x/moto-07.jpg", "1x/moto-08.jpg", "1x/moto-09.jpg"],
+      3: ["1x/1.png", "1x/2.png", "1x/3.png","1x/4.png","1x/5.png","1x/6.png","1x/7.png","1x/8.png","1x/9.png","1x/10.png"]
+    };
+
+    function abrirGaleria(id) {
+      const contenedor = document.getElementById("modal-galeria");
+      contenedor.innerHTML = "";
+      proyectos[id].forEach(img => {
+        const imagen = document.createElement("img");
+        imagen.src = img;
+        imagen.alt = "Proyecto";
+        imagen.classList.add("imagen-modal");
+        contenedor.appendChild(imagen);
+      });
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function cerrarGaleria() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
